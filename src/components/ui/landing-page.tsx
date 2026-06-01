@@ -26,6 +26,8 @@ import {
   Database,
   Briefcase,
   Calendar,
+  Sun,
+  Moon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -64,6 +66,26 @@ const itemFadeIn = {
 export function DesignAgency() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else {
+      setTheme("dark")
+    }
+  }, [])
+
+  useEffect(() => {
+    const root = window.document.documentElement
+    if (theme === "dark") {
+      root.classList.add("dark")
+    } else {
+      root.classList.remove("dark")
+    }
+    localStorage.setItem("theme", theme)
+  }, [theme])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -120,16 +142,44 @@ export function DesignAgency() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="rounded-full w-9 h-9 cursor-pointer text-muted-foreground hover:text-foreground"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem]" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem]" />
+              )}
+            </Button>
             <Link href="#contact">
               <Button size="sm" className="rounded-3xl font-mono text-xs">
                 Let's Talk
               </Button>
             </Link>
           </div>
-          <button className="flex md:hidden" onClick={toggleMenu}>
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle menu</span>
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="rounded-full w-9 h-9 cursor-pointer text-muted-foreground hover:text-foreground"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-[1.2rem] w-[1.2rem]" />
+              ) : (
+                <Moon className="h-[1.2rem] w-[1.2rem]" />
+              )}
+            </Button>
+            <button className="flex" onClick={toggleMenu}>
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -147,10 +197,25 @@ export function DesignAgency() {
                 <span className="font-bold text-xl font-mono tracking-tighter">B.W.</span>
               </Link>
             </div>
-            <button onClick={toggleMenu}>
-              <X className="h-6 w-6" />
-              <span className="sr-only">Close menu</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="rounded-full w-9 h-9 cursor-pointer text-muted-foreground hover:text-foreground"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-[1.2rem] w-[1.2rem]" />
+                ) : (
+                  <Moon className="h-[1.2rem] w-[1.2rem]" />
+                )}
+              </Button>
+              <button onClick={toggleMenu}>
+                <X className="h-6 w-6" />
+                <span className="sr-only">Close menu</span>
+              </button>
+            </div>
           </div>
           <motion.nav
             variants={staggerContainer}
