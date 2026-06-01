@@ -206,11 +206,11 @@ export function DesignAgency() {
                     transition={{ duration: 0.7, delay: 0.2 }}
                     className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl/none font-heading leading-tight"
                   >
-                    I build 24/7{" "}
+                    I build custom{" "}
                     <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                      Voice AI Receptionists
-                    </span>{" "}
-                    and automated pipelines.
+                      Next.js Applications
+                    </span>
+                    , Voice AI, and workflow automations.
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ export function DesignAgency() {
                     transition={{ duration: 0.7, delay: 0.4 }}
                     className="max-w-[750px] text-muted-foreground md:text-xl font-sans font-light leading-relaxed"
                   >
-                    Hi, I'm Bhavesh Waghmare. I founded **HvacEQ**—a fully managed 24/7 autonomous phone call answer and scheduler service that saves lost revenues for HVAC companies by booking jobs directly to calendars.
+                    Hi, I'm Bhavesh Waghmare. I design and engineer interactive web portals, autonomous voice agents, B2B lead generation engines, and backend integrations that streamline operations and scale business growth.
                   </motion.p>
                 </div>
                 <motion.div
@@ -437,7 +437,7 @@ export function DesignAgency() {
             <div className="space-y-8 mt-16">
               <div className="flex items-center gap-4 border-b border-border/40 pb-4">
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-heading text-muted-foreground">In Development</h2>
-                <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-mono text-sm">(2)</span>
+                <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-mono text-sm">(4)</span>
               </div>
 
               <div className="grid gap-6 md:grid-cols-2">
@@ -451,6 +451,16 @@ export function DesignAgency() {
                     title: "AI Appointment Setter",
                     subtitle: "Conversational Lead Booking",
                     desc: "Autonomous conversational AI agent designed for WhatsApp, SMS, and web channels. Instantly responds to inquiries, qualifies prospects, and books appointments directly into your calendar."
+                  },
+                  {
+                    title: "Automated Agents",
+                    subtitle: "Conversational Customer Operations",
+                    desc: "Autonomous AI-agent integrations for instant customer support, lead qualification, and voice calls, streamlining communication workflows."
+                  },
+                  {
+                    title: "Automations for Services",
+                    subtitle: "Service Business Optimization",
+                    desc: "n8n and Make.com integrations linking CRMs, appointment schedulers, and invoicing for automated back-office coordination."
                   }
                 ].map((project, index) => (
                   <motion.div
