@@ -705,8 +705,8 @@ export function DesignAgency() {
                     />
                   </div>
                   <div className="mt-6 text-center">
-                    <span className="text-xs font-mono text-white/60 uppercase tracking-widest block mb-2">View LinkedIn Profile</span>
-                    <h3 className="text-2xl font-bold text-white">Bhavesh Waghmare</h3>
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest block mb-2">View LinkedIn Profile</span>
+                    <h3 className="text-2xl font-bold text-foreground">Bhavesh Waghmare</h3>
                     <p className="text-primary font-medium text-sm mt-1">FOUNDER OF HVACEQ</p>
                   </div>
                 </Link>
